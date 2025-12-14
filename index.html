@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- 
+  Esta línea le dice al navegador que el documento está escrito en HTML5.
+  Es obligatorio en todos los archivos HTML modernos.
+-->
+
+<html lang="es">
+<!-- 
+  La etiqueta <html> encierra TODO el contenido del documento.
+  El atributo lang="es" indica que el idioma principal del contenido es español.
+-->
+
+<head>
+  <!-- 
+    La sección <head> contiene información "invisible" para el usuario:
+    - configuración del documento
+    - links a archivos externos
+    - metadatos
+    - título de la pestaña
+  -->
+
+  <meta charset="UTF-8" />
+  <!-- 
+    charset="UTF-8" permite usar acentos, ñ y caracteres especiales sin errores.
+  -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 
+    Esta línea hace que el sitio se vea bien en celulares.
+    "width=device-width" → ajusta el ancho al dispositivo
+    "initial-scale=1.0" → sin zoom inicial raro
+  -->
+
+  <title>Sistema EMFO</title>
+  <!-- 
+    Este texto es el que aparece en la pestaña del navegador.
+  -->
+
+  <link rel="stylesheet" href="index.css" />
+  <!-- 
+    Con esta línea le decimos al navegador:
+    "Traé las reglas de diseño desde el archivo styles.css"
+    Esto separa la estructura (HTML) del diseño (CSS).
+  -->
+</head>
+
+<body>
+  <!-- 
+    Todo lo que está dentro del <body> es lo que el usuario ve en pantalla.
+  -->
+
+  <h1 class="titulo">Sistema EMFO - Saldos Anteriores</h1>
+  <!-- 
+    <h1> es el título más importante.
+    class="titulo" se usa para aplicarle estilos desde CSS.
+  -->
+
+  <div class="form-container">
+    <!-- 
+      Este div agrupa todo el formulario.
+      class="form-container" permite darle estilo de "tarjeta" o "caja".
+    -->
+
+    <h2 class="subtitulo">Formulario de Saldos Anteriores</h2>
+    <!-- Segundo título, más chico que el <h1> -->
+
+    <!-- 
+      Cada bloque .fila contiene una etiqueta <label> y un <input>.
+      Esto mantiene ordenado el formulario.
+    -->
+
+    <div class="fila">
+      <label>Efectivo:</label>
+      <input id="efectivo" type="number" step="0.01">
+      <!-- 
+        input type="number" → solo permite números.
+        step="0.01" → permite decimales con dos cifras.
+        id="efectivo" → será usado por JavaScript para leer el valor.
+      -->
+    </div>
+
+    <div class="fila">
+      <label>Depósitos Caja Empleados:</label>
+      <input id="depositos" type="number" step="0.01">
+    </div>
+
+    <div class="fila">
+      <label>Moneda Extranjera:</label>
+      <input id="extranjera" type="number" step="0.01">
+    </div>
+
+    <div class="fila">
+      <label>Sobrante de Caja:</label>
+      <input id="sobrante" type="number" step="0.01">
+    </div>
+
+    <div class="fila">
+      <label>Responsable / Fallo:</label>
+      <input id="fallo" type="number" step="0.01">
+    </div>
+
+    <div class="fila">
+      <label>Anticipo Poker Torneo:</label>
+      <input id="poker" type="number" step="0.01">
+    </div>
+
+    <!-- Caja donde se muestra el total calculado en tiempo real -->
+    <div class="total-box">
+      <span>Total:</span>
+      <span id="total" class="total-valor">$ 0,00</span>
+      <!-- 
+        <span id="total"> es donde JavaScript va a escribir el total calculado.
+      -->
+    </div>
+
+    <button id="guardar" class="btn-guardar">Guardar Saldos</button>
+    <!-- 
+      Este es el botón para guardar los datos.
+      id="guardar" → JavaScript se engancha a este botón al hacer clic.
+    -->
+    
+    <button id="ir-form_carga" class="btn-guardar">Formulario de Carga</button>
+  
+  </div>
+    
+
+
+  <!-- Título para la sección inferior donde se muestra lo guardado -->
+  <h2 class="subtitulo">Saldos Guardados</h2>
+
+  <div id="vista-saldos" class="panel">
+    <!-- 
+      Este div mostrará los saldos guardados.
+      Por defecto muestra un mensaje indicando que no hay nada aún.
+    -->
+    <p>No hay saldos guardados todavía.</p>
+  </div>
+
+  <script src="index.js"></script>
+  <!-- 
+    Con esta línea cargamos el archivo script.js.
+    Allí estará toda la lógica: cálculos, guardado, actualización del total, etc.
+  -->
+</body>
+
+</html>

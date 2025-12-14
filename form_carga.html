@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>EMFO - Formulario de Carga</title>
+
+  <!-- Vinculamos el CSS externo -->
+  <link rel="stylesheet" href="form_carga.css" />
+</head>
+
+<body>
+
+  <!-- TÍTULO PRINCIPAL -->
+  <h1 class="titulo">Formulario de Carga</h1>
+<div class="navegacion">
+  <!-- BOTONES SUPERIORES DE NAVEGACIÓN -->
+ 
+    <!-- Botón para volver a Saldos -->
+    <button id="btn_volver_saldos" class="btn-guardar nav-btn">◀ Saldos Inciales</button>
+
+    <!-- Botón para ver el panel EMFO -->
+    <button id="btn_ver_emfo" class="btn-guardar nav-btn">Ver EMFO y Saldos Finales ▼</button>
+  </div>
+
+  <!-- CONTENEDOR PRINCIPAL DEL FORMULARIO -->
+  <div class="form-container" id="form_emfo_container">
+
+    <h2 class="subtitulo">Cargar valores</h2>
+
+    <!-- SECCIÓN 1 -->
+    <div class="seccion">
+      <h3 class="sub-seccion">Venta / Pagos / Caja</h3>
+
+      <div class="fila">
+        <label>Venta Fichas Pesos:</label>
+        <input id="venta_pesos" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Venta Fichas Dólares:</label>
+        <input id="venta_dolares" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Pago Fichas:</label>
+        <input id="pago_fichas" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Caja Empleados:</label>
+        <input id="caja_empleados" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Beneficio:</label>
+        <input id="beneficio" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Quebranto:</label>
+        <input id="quebranto" type="number" step="0.01">
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2 -->
+    <div class="seccion">
+      <h3 class="sub-seccion">Otras Recaudaciones / Movimientos</h3>
+
+      <div class="fila">
+        <label>Venta Receptora:</label>
+        <input id="venta_receptora" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Pago de Tickets:</label>
+        <input id="pago_tickets" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Pago Fuera del Sistema:</label>
+        <input id="pago_fuera" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Redondeos en Pago:</label>
+        <input id="redondeos_pago" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Venta Tickets por Caja:</label>
+        <input id="venta_tickets_caja" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Bco. Pcia. Cta. Cte.:</label>
+        <input id="bco_pcia_ctacte" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Fondos Transf. Exced.:</label>
+        <input id="fondos_transf_exced" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Diferencia de Cotización:</label>
+        <input id="diff_cotizacion" type="number" step="0.01">
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3 -->
+    <div class="seccion">
+      <h3 class="sub-seccion">Caja Empleados / Recaudaciones</h3>
+
+      <div class="fila">
+        <label>Caja de Empleados:</label>
+        <input id="caja_de_empleados" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Caja Empleados Tickets:</label>
+        <input id="caja_empleados_tickets" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Recaudaciones Varias:</label>
+        <input id="recaudaciones_varias" type="number" step="0.01">
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4 -->
+    <div class="seccion">
+      <h3 class="sub-seccion">Faltantes / Sobrantes / Fallos</h3>
+
+      <div class="fila">
+        <label>Fallo de Caja Egreso:</label>
+        <input id="fallo_caja_egreso" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Fallo de Caja Ingreso:</label>
+        <input id="fallo_caja_ingreso" type="number" step="0.01">
+      </div>
+
+      <div class="fila">
+        <label>Sobrante de Caja Ingreso:</label>
+        <input id="sobrante_caja_ingreso" type="number" step="0.01">
+      </div>
+    </div>
+
+    <!-- CAJA TOTAL -->
+    <div class="total-box">
+      <span>Resultado (Poder / Rescate):</span>
+      <span id="resultado_emfo" class="total-valor">$ 0,00</span>
+    </div>
+
+    <!-- TEXTO DE PODER / RESCATE -->
+    <div class="texto-centro">
+      <span id="texto_poder_rescate"></span>
+    </div>
+
+    <!-- BOTÓN GUARDAR -->
+    <button id="guardar_emfo" class="btn-guardar">Guardar EMFO</button>
+
+  </div>
+
+  <!-- PANEL DE DATOS GUARDADOS -->
+  <h2 class="subtitulo">EMFO - Datos guardados</h2>
+  <div id="panel_emfo" class="panel">
+    <p>No hay EMFO guardado todavía.</p>
+  </div>
+
+  <!-- ARCHIVO JS -->
+  <script src="form_carga.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+/* -----------------------------------------------------------
+   Quitar flechas de los <input type="number">
+   -----------------------------------------------------------
+   Algunos navegadores (Chrome, Firefox, Edge) muestran
+   flechitas para subir o bajar el número.
+   Como esto puede generar errores al cargar montos,
+   las eliminamos para que el usuario solo pueda escribir.
+----------------------------------------------------------- */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Oculta las flechas en Chrome/Edge/Safari */
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Oculta flechas en Firefox */
+}
+/* ------------------------------------------------------
+   ESTILOS GENERALES
+-------------------------------------------------------*/
+
+body {
+  background-color: #eaf6ff;   /* Fondo azul celeste muy suave */
+  font-family: Arial, sans-serif; /* Fuente simple y legible */
+  margin: 0;                    /* Quitamos márgenes del navegador */
+  padding: 25px;                /* Separación interna alrededor de la página */
+  color: #333;                  /* Color gris oscuro para el texto */
+}
+
+.titulo {
+  text-align: center; /* Centra el texto */
+  color: #0f3d62;     /* Azul fuerte */
+  margin-bottom: 25px; /* Espacio debajo del título */
+}
+
+/* ------------------------------------------------------
+   BOTONES SUPERIORES
+-------------------------------------------------------*/
+
+.nav-superior {
+  max-width: 760px;
+  margin: 0 auto 12px auto;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+   display: blockc;      /* convierte el botón en bloque */
+  margin-left: auto;   /* margen automático izquierda */
+  margin-right: auto;  /* margen automático derecha */
+}
+
+.nav-btn {
+  width: auto;
+  padding: 8px 12px;
+   display: blockc;      /* convierte el botón en bloque */
+  margin-left: auto;   /* margen automático izquierda */
+  margin-right: auto;  /* margen automático derecha */
+}
+
+/* Estilo general de botones */
+.btn-guardar {
+  background-color: #53a9ff;      /* color de fondo celeste pastel */
+  color: white;                   /* color del texto */
+  border: none;                   /* quita borde */
+  padding: 10px 16px;             /* espacio interno */
+  font-size: 15px;                /* tamaño de letra */
+  cursor: pointer;                /* cambia cursor a mano */
+  margin-top: 12px;               /* separación superior */
+  border-radius: 8px;             /* bordes redondeados */
+  transition: 0.2s ease;          /* animación suave */
+  /* LO QUE IMPORTA PARA CENTRAR: */
+  display: block;      /* convierte el botón en bloque */
+  margin-left: auto;   /* margen automático izquierda */
+  margin-right: auto;  /* margen automático derecha */
+}
+
+.btn-guardar:hover {
+  transform: scale(1.04);
+}
+
+/* ------------------------------------------------------
+   FORMULARIO
+-------------------------------------------------------*/
+
+.form-container {
+  background: #c1dff8;        /* Celeste claro */
+  border: 2px solid #8cc5ff;  /* Borde celeste */
+  border-radius: 12px;        /* Bordes redondeados agradables */
+  padding: 20px 25px;         /* Espaciado interno */
+  max-width: 500px;           /* Ancho máximo para que no se estire demasiado */
+  margin: 0 auto 30px auto;   /* Centrado horizontal y margen abajo */
+  box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+.subtitulo {
+  text-align: center;
+  color: #0f3d62;        /* Azul profesional */
+  margin-bottom: 20px;
+}
+
+/* Títulos de cada sección */
+.sub-seccion {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+
+/* Contenedor de cada sección */
+.seccion {
+  background: #d4ebff;        /* Celeste claro */
+  border: 2px solid #8cc5ff;  /* Borde celeste */
+  border-radius: 12px;        /* Bordes redondeados agradables */
+  padding: 20px 25px;         /* Espaciado interno */
+  max-width: 500px;           /* Ancho máximo para que no se estire demasiado */
+  margin: 0 auto 30px auto;   /* Centrado horizontal y margen abajo */
+  box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+.navegacion{
+    background: #d4ebff;        /* Celeste claro */
+  border: 2px solid #8cc5ff;  /* Borde celeste */
+  border-radius: 12px;        /* Bordes redondeados agradables */
+  padding: 20px 25px;         /* Espaciado interno */
+  max-width: 500px;           /* Ancho máximo para que no se estire demasiado */
+  margin: 0 auto 30px auto;   /* Centrado horizontal y margen abajo */
+  box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Sombra suave */
+   display: flex;
+  justify-content: space-between; /* uno a cada lado */
+  align-items: center;             /* centrados verticalmente */
+  width: 100%;
+}
+/* ------------------------------------------------------
+   FILAS DE CAMPOS
+-------------------------------------------------------*/
+
+/* -----------------------------------------------------------
+   CADA FILA DEL FORMULARIO
+   Una fila = 1 etiqueta + 1 input
+----------------------------------------------------------- */
+.fila {
+  display: flex;               /* Pone label e input en una misma línea */
+  justify-content: space-between; /* Separación equilibrada */
+  align-items: center;         /* Centra verticalmente */
+  margin-bottom: 15px;         /* Espacio entre filas */
+}
+
+/* Texto del label */
+.fila label {
+  font-weight: bold;  /* Negrita para destacar */
+  color: #0f3d62;     /* Azul profesional */
+}
+
+/* Input donde se escribe el monto */
+.fila input {
+  width: 180px;              /* Ancho fijo del campo */
+  padding: 6px 8px;          /* Espaciado interno */
+  border: 1px solid #8cc5ff; /* Borde celeste */
+  border-radius: 6px;        /* Bordes redondeados */
+  background: white;         /* Fondo blanco para buena lectura */
+}
+
+/* ------------------------------------------------------
+   TOTAL
+-------------------------------------------------------*/
+
+.total-box {
+  background: #e3ebff;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.total-valor {
+  font-size: 1.2rem;
+}
+
+/* Texto debajo del total */
+.texto-centro {
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ------------------------------------------------------
+   PANEL DE EMFO GUARDADO
+-------------------------------------------------------*/
+
+.panel {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
