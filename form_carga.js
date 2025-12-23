@@ -103,42 +103,45 @@ function formatearARS(n) {
   });
 }
 function formatearInputEnVivo(input) {
-
   input.addEventListener("input", function () {
-
     // posición original del cursor
     let cursor = this.selectionStart;
 
     // valor actual del input
     let original = this.value;
 
-    // quitamos puntos (los agregaremos de nuevo)
+    // quitamos puntos de miles para evitar interferencia
     let sinPuntos = original.replace(/\./g, "");
 
     // permitir solo dígitos y UNA sola coma
     sinPuntos = sinPuntos.replace(/[^\d,]/g, "");
+
+    // separo parte entera y decimal (si hay)
     const partes = sinPuntos.split(",");
     if (partes.length > 2) {
       sinPuntos = partes[0] + "," + partes[1];
     }
 
-    // separar parte entera y decimal
+    // separo la parte entera y la decimal
     let [entero, decimal] = sinPuntos.split(",");
 
-    // si quedó vacío el entero, lo tomamos como 0
+    // si la parte entera está vacía, la tratamos como 0
     if (entero === "") entero = "0";
 
-    // aplicar separador de miles (super rápido)
+    // aplicar separador de miles
     const enteroFormateado = entero.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-    // reconstruir valor final
+    // reconstruir el valor final con la parte decimal si existe
     this.value = decimal !== undefined
       ? `${enteroFormateado},${decimal}`
       : enteroFormateado;
 
-    // corregir posición de cursor sin saltos
+    // corregir la posición del cursor sin saltos
     const diferencia = this.value.length - original.length;
     this.setSelectionRange(cursor + diferencia, cursor + diferencia);
+
+    // Recalcular el poder/rescate en vivo
+    calcularPoderRescate();
   });
 }
 
@@ -163,13 +166,14 @@ function formatearInputEnVivo(input) {
 function calcularPoderRescate() {
   // leemos los 5 campos implicados en la fórmula
   const ventaPesos = leerNumero(ventaPesosInput);
+  const ventaDolares= leerNumero(ventaDolaresInput);
   const pagoFichas = leerNumero(pagoFichasInput);
   const cajaEmpleados = leerNumero(cajaEmpleadosInput);
   const beneficio = leerNumero(beneficioInput);
   const quebranto = leerNumero(quebrantoInput);
 
   // aplicamos la fórmula
-  const resultado = ventaPesos - pagoFichas - cajaEmpleados - beneficio + quebranto;
+  const resultado = ventaPesos + ventaDolares - pagoFichas - cajaEmpleados - beneficio + quebranto;
 
   // mostramos en la caja tipo TOTAL con formato
   resultadoSpan.textContent = `$ ${ formatearARS(resultado) }`;
@@ -486,5 +490,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   } else {
     console.warn('No se encontró el botón con id="btn_volver_saldos".');
+  }
+});
+
+ /**************************************************************
+  * Boton para ir al formulario de carga
+  * ------------------------------------------------------------
+  ***************************************************************/
+ // Esperamos a que todo el contenido del documento esté cargado.
+// Esto garantiza que el botón con id="ir-form" ya exista en el DOM
+// antes de intentar obtenerlo con getElementById.
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Obtenemos el botón por su ID. Debe coincidir EXACTAMENTE
+  // con el id que tiene el botón en el HTML.
+  const botonIr = document.getElementById("btn_ver_emfo");
+  
+  // Verificamos que el botón exista (esto es buena práctica para evitar errores
+  // si el elemento no está en la página por algún motivo).
+  if (botonIr) {
+    
+    // Agregamos un "listener" que ejecuta una función cuando el usuario hace clic.
+    botonIr.addEventListener("click", () => {
+      
+      // Cambiamos la página actual redirigiendo al usuario a "page2.html".
+      // Podés reemplazar esta ruta por la página que necesites.
+      window.location.href = "emfo.html";
+    });
+
+  } else {
+    // Si no se encuentra el botón, mostramos un mensaje en la consola.
+    // Esto ayuda a detectar errores en el HTML.
+    console.warn('No se encontró el botón con id="ir-form_carga".');
   }
 });

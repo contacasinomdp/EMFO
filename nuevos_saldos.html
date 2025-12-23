@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- Título de la pestaña del navegador -->
+    <title>EMFO - Nuevos Saldos</title>
+
+    <!-- CSS principal (podés usar el mismo que el index si querés) -->
+    <link rel="stylesheet" href="emfo.css">
+
+    <!-- Estilos SOLO para impresión -->
+     <link rel="stylesheet" href="index.css">
+    <style>
+        @media print {
+            button {
+                display: none;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- ========================= -->
+    <!-- ENCABEZADO DEL REPORTE -->
+    <!-- ========================= -->
+    <h1>Nuevos Saldos</h1>
+    <p>Reporte automático generado desde EMFO</p>
+    <div class="encabezado">
+        <span id="fecha_cierre"></span>
+        <span id="numero_cierre"></span>
+    </div>
+    <!-- ========================= -->
+    <!-- TABLA DE SALDOS -->
+    <!-- ========================= -->
+    <table border="1" width="100%" cellspacing="0" cellpadding="8">
+
+        <!-- Encabezado de la tabla -->
+        <thead>
+            <tr>
+                <th>Concepto</th>
+                <th>Importe</th>
+            </tr>
+        </thead>
+
+        <!-- Cuerpo de la tabla -->
+        <tbody>
+
+            <!-- EFECTIVO -->
+            <tr>
+                <td><strong>Efectivo</strong></td>
+                <td id="saldoEfectivo">$ 0,00</td>
+            </tr>
+
+            <!-- DEPÓSITO CAJA EMPLEADOS -->
+            <tr>
+                <td>A Dep. Caja Empleados (Pesos)</td>
+                <td id="saldoCajaEmpleados">$ 0,00</td>
+            </tr>
+
+            <!-- MONEDA EXTRANJERA -->
+            <tr>
+                <td>Moneda Extranjera</td>
+                <td id="saldoMonedaExtranjera">$ 0,00</td>
+            </tr>
+
+            <!-- SOBRANTE DE CAJA -->
+            <tr>
+                <td>Sobrante de Caja (Pesos)</td>
+                <td id="saldoSobranteCaja">$ 0,00</td>
+            </tr>
+
+            <!-- RESPONSABLE FALLO DE CAJA -->
+            <tr>
+                <td>Responsable Fallo de Caja</td>
+                <td id="saldoResponsableFalla">$ 0,00</td>
+            </tr>
+
+            <!-- ANTICIPO POKER -->
+            <tr>
+                <td>Anticipo Poker Torneo</td>
+                <td id="saldoAnticipoPoker">$ 0,00</td>
+            </tr>
+
+            <!-- TOTAL -->
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td id="saldoTotal"><strong>$ 0,00</strong></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <!-- ========================= -->
+    <!-- BOTONES -->
+    <!-- ========================= -->
+    <br>
+
+    <!-- Botón imprimir -->
+    <button onclick="window.print()">Imprimir</button>
+
+    <!-- Botón volver -->
+    <button onclick="window.location.href='index.html'">Volver</button>
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+    <script src="nuevos_saldos.js"></script>
+
+</body>
+</html>

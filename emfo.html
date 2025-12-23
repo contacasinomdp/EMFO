@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>EMFO – Resultado Diario</title>
+  <link rel="stylesheet" href="emfo.css" />
+</head>
+<body>
+<div class="no-print" style="text-align:right; margin-bottom:10px;">
+  <button onclick="window.print()">🖨️ Imprimir EMFO</button>
+</div>
+<main class="emfo">
+  <button id="ir-form_carga" class="btn-guardar">Formulario de Carga</button>
+  <button id="ir-nuevos-saldos" class="btn-guardar">Nuevos Saldos</button>
+  <h1>ESTADO DE MOVIMIENTO DE FONDOS (EMFO)</h1>
+
+  <section class="emfo-columnas">
+
+    <!-- ======================= -->
+    <!--        INGRESOS         -->
+    <!-- ======================= -->
+    <div class="columna ingresos">
+      <h2>INGRESOS</h2>
+
+      <div class="seccion">
+        <h3>CAJA DE EMPLEADOS</h3>
+        <div class="fila"><span>215110</span><span>CAJA EMPLEADOS FICHAS</span><span class="monto" id="in_caja_empleados_fichas">0,00</span></div>
+        <div class="fila"><span>215120</span><span>CAJA EMPLEADOS MONEDAS</span><span class="monto" id="in_caja_empleados_monedas">0,00</span></div>
+        <div class="fila subtotal"><span></span><span><strong>SUBTOTAL CAJA DE EMPLEADOS</strong></span><span class="monto" id="sub_ing_caja_empleados">0,00</span></div>
+      </div>
+
+      <div class="seccion">
+        <h3>EXTRACC. Y DÉBITOS BANC.</h3>
+        <div class="fila"><span>111B10</span><span>BCO. PCIA. CTA. CTE.</span><span class="monto" id="in_bco_pcia_ctacte">0,00</span></div>
+      </div>
+
+      <div class="seccion">
+        <h3>OTROS INGRESOS</h3>
+        <div class="fila"><span>6I0000</span><span>DIFERENCIA DE COTIZACIÓN</span><span class="monto" id="in_dif_cotizacion">0,00</span></div>
+        <div class="fila"><span>532100</span><span>FONDOS TRANSF. EXCED. PESOS</span><span class="monto" id="in_fondos_transf_exced">0,00</span></div>
+        <div class="fila"><span>6R1000</span><span>RECAUDACIONES VARIAS PESOS</span><span class="monto" id="in_recaudaciones_varias">0,00</span></div>
+        <div class="fila"><span>1217A0</span><span>RESPONSABLES FALLA</span><span class="monto" id="in_responsables_falla">0,00</span></div>
+        <div class="fila"><span>6F3000</span><span>SOBRANTES REDONDEOS</span><span class="monto" id="in_sobrantes_redondeos">0,00</span></div>
+        <div class="fila"><span>6F1000</span><span>SOBRANTE DE CAJA PESOS</span><span class="monto" id="in_sobrante_caja">0,00</span></div>
+        <div class="fila subtotal"><span></span><span><strong>SUBTOTAL OTROS INGRESOS</strong></span><span class="monto" id="sub_ing_otros_ingresos">0,00</span></div>
+      </div>
+
+      <div class="seccion">
+        <h3>PASIVOS CORRIENTES</h3>
+        <div class="fila"><span>211100</span><span>FICHAS A PAGAR</span><span class="monto" id="in_fichas_a_pagar">0,00</span></div>
+      </div>
+
+      <div class="seccion">
+        <h3>VENTA DE FICHAS</h3>
+        <div class="fila"><span>6A1000</span><span>VENTA DE FICHAS (EN PESOS)</span><span class="monto" id="in_venta_fichas_pesos">0,00</span></div>
+        <div class="fila"><span>6A2000</span><span>VENTA DE FICHAS (EN DÓLARES)</span><span class="monto" id="in_venta_fichas_dolares">0,00</span></div>
+        <div class="fila subtotal"><span></span><span><strong>SUBTOTAL VENTA DE FICHAS</strong></span><span class="monto" id="sub_ing_venta_fichas">0,00</span></div>
+      </div>
+
+      <div class="seccion">
+        <h3>VENTA DE MONEDAS</h3>
+        <div class="fila"><span>6B3100</span><span>VENTA RECEPTORA DE BILLETES</span><span class="monto" id="in_venta_receptora">0,00</span></div>
+        <div class="fila"><span>6B3300</span><span>VENTA TICKETS POR CAJA</span><span class="monto" id="in_venta_tickets_caja">0,00</span></div>
+        <div class="fila subtotal"><span></span><span><strong>SUBTOTAL VENTA DE MONEDAS</strong></span><span class="monto" id="sub_ing_venta_monedas">0,00</span></div>
+      </div>
+
+    </div>
+
+    <!-- ======================= -->
+    <!--        EGRESOS          -->
+    <!-- ======================= -->
+    <div class="columna egresos">
+      <h2>EGRESOS</h2>
+
+      <div class="seccion">
+        <h3>DEPÓSITOS BANCARIOS</h3>
+        <div class="fila"><span>111B10</span><span>BCO. PCIA. M.D.P. CTA. CTE.</span><span class="monto" id="eg_bco_pcia_ctacte">0,00</span></div>
+      </div>
+
+      <div class="seccion">
+        <h3>NO DEFINIDO</h3>
+        <div class="fila"><span>533000</span><span>DÉBITO C.U.T. 73780/5 EXCEDENTE $</span><span class="monto" id="eg_debito_cut_excedente">0,00</span></div>
+      </div>
+
+      <div class="seccion">
+        <h3>OTROS EGRESOS</h3>
+        <div class="fila"><span>536000</span><span>DÉBITO C.U.T. 73780/5</span><span class="monto" id="eg_debito_cut">0,00</span></div>
+        <div class="fila"><span>6I0000</span><span>DIFERENCIA DE COTIZACIÓN</span><span class="monto" id="eg_dif_cotizacion">0,00</span></div>
+        <div class="fila"><span>7J0000</span><span>FICHAS PREMIADAS</span><span class="monto" id="eg_fichas_premiadas">0,00</span></div>
+        <div class="fila"><span>6F1000</span><span>SOBRANTE DE CAJA PESOS</span><span class="monto" id="eg_sobrante_caja">0,00</span></div>
+        <div class="fila"><span>6F3000</span><span>SOBRANTE REDONDEOS</span><span class="monto" id="eg_sobrante_redondeos">0,00</span></div>
+        <div class="fila"><span>1217A0</span><span>RESPONSABLES FALLA</span><span class="monto" id="eg_responsables_falla">0,00</span></div>
+        <div class="fila subtotal"><span></span><span><strong>SUBTOTAL OTROS EGRESOS</strong></span><span class="monto" id="sub_egr_otros">0,00</span></div>
+      </div>
+
+      <div class="seccion">
+        <h3>PAGO DE FICHAS</h3>
+        <div class="fila"><span>7A2000</span><span>PAGO DE FICHAS C. DE EMPLEADOS</span><span class="monto" id="eg_pago_fichas_empleados">0,00</span></div>
+      </div>
+
+      <div class="seccion">
+        <h3>PASIVOS CORRIENTES</h3>
+        <div class="fila"><span>211100</span><span>FICHAS A PAGAR</span><span class="monto" id="eg_fichas_a_pagar">0,00</span></div>
+        <div class="fila"><span>211400</span><span>TICKETS A PAGAR</span><span class="monto" id="eg_tickets_a_pagar">0,00</span></div>
+      </div>
+
+    </div>
+
+  </section>
+</main>
+
+<table class="emfo-totales">
+  <tr class="total-ingresos"><td colspan="2"><strong>TOTAL INGRESOS</strong></td><td class="importe"><span id="total_ingresos">0,00</span></td></tr>
+  <tr class="total-egresos"><td colspan="2"><strong>TOTAL EGRESOS</strong></td><td class="importe"><span id="total_egresos">0,00</span></td></tr>
+  <tr class="resultado-emfo"><td colspan="2"><strong>RESULTADO EMFO</strong></td><td class="importe"><span id="resultado_emfo">0,00</span></td></tr>
+</table>
+
+<script src="emfo.js"></script>
+
+</body>
+</html>
