@@ -523,4 +523,39 @@ document.addEventListener("DOMContentLoaded", () => {
     // Esto ayuda a detectar errores en el HTML.
     console.warn('No se encontró el botón con id="ir-form_carga".');
   }
+  /*****************************************************
+ * GUARDAMOS FECHA Y NÚMERO DE CIERRE
+ * Esto se hace UNA SOLA VEZ al cerrar
+ *****************************************************/
+
+// FECHA ACTUAL
+const hoy = new Date();
+
+// Convertimos la fecha a formato DD/MM/YYYY
+const fechaFormateada =
+    String(hoy.getDate()).padStart(2, "0") + "/" +
+    String(hoy.getMonth() + 1).padStart(2, "0") + "/" +
+    hoy.getFullYear();
+
+// Guardamos la fecha en localStorage
+localStorage.setItem("fecha_cierre", fechaFormateada);
+
+/*****************************************************
+ * NÚMERO DE CIERRE
+ * Lo generamos o reutilizamos el último
+ *****************************************************/
+
+// Traemos el último número de cierre
+let numeroCierre = localStorage.getItem("numero_cierre");
+
+// Si no existe, empezamos en 1
+if (!numeroCierre) {
+    numeroCierre = 1;
+} else {
+    // Si existe, sumamos 1
+    numeroCierre = Number(numeroCierre) + 1;
+}
+
+// Guardamos el nuevo número
+localStorage.setItem("numero_cierre", numeroCierre);
 });

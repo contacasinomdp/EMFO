@@ -182,13 +182,17 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- PASIVOS CORRIENTES ---------- */
 
   const egFichasAPagar  = Number(datos.pago_fichas || 0);
-  const egTicketsAPagar = Number(datos.pago_tickets || 0);
+  
 
   document.getElementById("eg_fichas_a_pagar").textContent =
     formatearPesos(egFichasAPagar);
 
+  const egTicketsAPagar = Number(datos.pago_tickets || 0);
+  const egPagoFuera= Number(datos.pago_fuera||0);
+  const egtotalTikets= egTicketsAPagar+egPagoFuera;
+
   document.getElementById("eg_tickets_a_pagar").textContent =
-    formatearPesos(egTicketsAPagar);
+    formatearPesos(egtotalTikets);
 
   /* =========================================================
      ===================== TOTALES ===========================

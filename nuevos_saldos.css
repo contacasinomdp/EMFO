@@ -1,0 +1,13 @@
+.encabezado-cierre {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.dato-cierre {
+    font-size: 16px;
+}
+
+.label {
+    font-weight: bold;
+}

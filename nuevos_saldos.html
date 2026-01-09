@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="emfo.css">
 
     <!-- Estilos SOLO para impresión -->
-     <link rel="stylesheet" href="index.css">
+     <link rel="stylesheet" href="nuevos_saldos.css">
     <style>
         @media print {
             button {
@@ -27,10 +27,19 @@
     <!-- ========================= -->
     <h1>Nuevos Saldos</h1>
     <p>Reporte automático generado desde EMFO</p>
-    <div class="encabezado">
-        <span id="fecha_cierre"></span>
-        <span id="numero_cierre"></span>
+    <div class="encabezado-cierre">
+
+    <div class="dato-cierre">
+        <span class="label">Fecha:</span>
+        <span id="ns_fecha">--/--/----</span>
     </div>
+
+    <div class="dato-cierre">
+        <span class="label">Cierre N°:</span>
+        <span id="ns_numero_cierre">---</span>
+    </div>
+
+</div>
     <!-- ========================= -->
     <!-- TABLA DE SALDOS -->
     <!-- ========================= -->

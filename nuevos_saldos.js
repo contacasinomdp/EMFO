@@ -186,3 +186,38 @@ document.getElementById("numero_cierre").textContent =
   "Cierre Nº " + nroCierre;
 
 });
+/*****************************************************
+ * nuevos_saldos.js
+ * Muestra los nuevos saldos y los datos del cierre
+ *****************************************************/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /*************************************************
+     * 1️⃣ FECHA
+     * La fecha sale del index (ya calculada)
+     * En este ejemplo la traemos desde localStorage
+     *************************************************/
+
+    const fechaCierre = localStorage.getItem("fecha_cierre");
+
+    if (fechaCierre) {
+        document.getElementById("ns_fecha").textContent = fechaCierre;
+    } else {
+        document.getElementById("ns_fecha").textContent = "Sin fecha";
+    }
+
+    /*************************************************
+     * 2️⃣ NÚMERO DE CIERRE
+     * Igual lógica que el index
+     *************************************************/
+
+    const numeroCierre = localStorage.getItem("numero_cierre");
+
+    if (numeroCierre) {
+        document.getElementById("ns_numero_cierre").textContent = numeroCierre;
+    } else {
+        document.getElementById("ns_numero_cierre").textContent = "Sin número";
+    }
+
+});

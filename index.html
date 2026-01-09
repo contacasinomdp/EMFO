@@ -71,9 +71,9 @@
 
     <div class="fila">
       <label>Efectivo:</label>
-      <input id="efectivo" type="number" step="0.01">
+      <input id="efectivo" type="text" inputmode="decimal" step="0.01">
       <!-- 
-        input type="number" → solo permite números.
+        input type="text" inputmode="decimal" → solo permite números.
         step="0.01" → permite decimales con dos cifras.
         id="efectivo" → será usado por JavaScript para leer el valor.
       -->
@@ -81,27 +81,27 @@
 
     <div class="fila">
       <label>Depósitos Caja Empleados:</label>
-      <input id="depositos" type="number" step="0.01">
+      <input id="depositos" type="text" inputmode="decimal" step="0.01">
     </div>
 
     <div class="fila">
       <label>Moneda Extranjera:</label>
-      <input id="extranjera" type="number" step="0.01">
+      <input id="extranjera" type="text" inputmode="decimal" step="0.01">
     </div>
 
     <div class="fila">
       <label>Sobrante de Caja:</label>
-      <input id="sobrante" type="number" step="0.01">
+      <input id="sobrante" type="text" inputmode="decimal" step="0.01">
     </div>
 
     <div class="fila">
       <label>Responsable / Fallo:</label>
-      <input id="fallo" type="number" step="0.01">
+      <input id="fallo" type="text" inputmode="decimal" step="0.01">
     </div>
 
     <div class="fila">
       <label>Anticipo Poker Torneo:</label>
-      <input id="poker" type="number" step="0.01">
+      <input id="poker" type="text" inputmode="decimal" step="0.01">
     </div>
 
     <!-- Caja donde se muestra el total calculado en tiempo real -->
@@ -118,7 +118,9 @@
       Este es el botón para guardar los datos.
       id="guardar" → JavaScript se engancha a este botón al hacer clic.
     -->
-    
+    <button onclick="window.print()" class="btn-guardar">
+  Imprimir
+</button>
     <button id="ir-form_carga" class="btn-guardar">Formulario de Carga</button>
   
   </div>
@@ -136,11 +138,11 @@
     <p>No hay saldos guardados todavía.</p>
   </div>
 
-  <script src="index.js"></script>
-  <!-- 
-    Con esta línea cargamos el archivo script.js.
-    Allí estará toda la lógica: cálculos, guardado, actualización del total, etc.
-  -->
+  <div id="mensaje-guardado" class="mensaje-guardado oculto">
+  ✔ Saldos guardados correctamente
+</div>
+
+<script src="index.js"></script>
 </body>
 
 </html>
